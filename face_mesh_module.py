@@ -20,3 +20,16 @@ class FaceMeshDetector():
     def detectFaceMesh(self, img, draw=True):
         # Convert img rgb for mediapipe
         imgRGB = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+
+                
+        # Feed results to mediapipe
+        results = self.faceMesh.process(imgRGB)
+
+        faces = results.multi_face_landmarks
+
+        if draw:
+            if faces:
+                for face in faces:
+                    self.mpDraw.draw_landmarks(img, face, self.mpFaceMesh.FACEMESH_CONTOURS,
+                    self.drawSpec, self.drawSpec)
+
