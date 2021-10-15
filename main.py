@@ -1,6 +1,7 @@
 import cv2 as cv
 import mediapipe as mp
 import time
+import face_mesh_module as face_mesh
 
 # Capturing vid (change filename to 0 if need webcam)
 capture = cv.VideoCapture("videos/vid_test_smile.3gp")
@@ -13,6 +14,10 @@ while True:
     # If can't read currunt img, break loop
     if not success:
           break
+
+    detector = face_mesh.FaceMeshDetector()
+
+    detector.detectFaceMesh(img)
 
     # Calculating fps
     cTime = time.time()
