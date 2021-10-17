@@ -4,7 +4,7 @@ import time
 import face_mesh_module as face_mesh
 
 # Capturing vid (change filename to 0 if need webcam)
-capture = cv.VideoCapture("videos/vid_test_smile.3gp")
+capture = cv.VideoCapture(0)
 pTime = 0
 
 while True:
